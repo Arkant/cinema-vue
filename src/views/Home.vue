@@ -1,16 +1,23 @@
 <template>
 <v-container>
-  I am HOme
-  <HelloWorld/>
+  <Welcome/>
 </v-container>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import Welcome from '../components/Welcome'
+  // import mapGetters from 'vuex'
 
   export default {
     components: {
-      HelloWorld
-    }
+      Welcome
+    },
   }
 </script>
+
+<style scoped>
+.container {
+  color: #353F9F; 
+}
+</style>
+

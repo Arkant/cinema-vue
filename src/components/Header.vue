@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar>
+    <v-toolbar class="menu">
       <v-toolbar-title class="headline text-uppercase">
       <span class="grey--text text--darken-4">Cinema</span>
       <span class="indigo--text text--darken-2 font-weight-light">VUETIFUL APP</span>
@@ -23,6 +23,6 @@
   }
 </script>
 
-<style>
+<style scoped>
 
 </style>

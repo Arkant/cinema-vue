@@ -3,14 +3,13 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
-
+    homeMessage: "Find the film that You will love"
   },
-  mutations: {
-
-  },
-  actions: {
-
+  getters: {
+    homeMessage: state => state.homeMessage
   }
-})
+});
+
+export default store;
