@@ -7,6 +7,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn to="/" flat>Home</v-btn>
+        <v-btn to="/films" flat>Films</v-btn>
         <v-btn to="/about" flat>About</v-btn>
       </v-toolbar-items>
   </v-toolbar>
