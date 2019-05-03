@@ -22,8 +22,7 @@ export default {
 
 <style scoped>
   .par{
-    background: url("https://cdn.vuetifyjs.com/images/parallax/material.jpg") no-repeat;
-    background-size: cover;
+    background-color: #43A047;
   }
 </style>
 

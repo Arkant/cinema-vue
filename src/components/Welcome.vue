@@ -3,7 +3,7 @@
     <v-card-text>
       <div class="text-xs-center display-3">
         <p>VUETIFUL MOVIES</p>
-        <v-btn class="btn-hello" color="white">Discover it</v-btn>
+        <v-btn class="btn-hello white--text" color="#212121"> <h3>Discover it</h3> </v-btn>
       </div>
       
     </v-card-text>
