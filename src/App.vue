@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
   .par{
-    background-color: #673AB7;
+    background-color: #43A047;
   }
 </style>
 
