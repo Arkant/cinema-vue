@@ -1,5 +1,3 @@
-import firebase from 'firebase';
-
 const config = {
     apiKey: "AIzaSyCr6rx7uAtBYvP0uImsETg9PgvelaOk8JM",
     authDomain: "cinema-vue-1869c.firebaseapp.com",
@@ -9,4 +7,4 @@ const config = {
     messagingSenderId: "19028627149"
 
 };
-firebase.initializeApp(config);
+export default config;
