@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import router from '@/router';
 
 const userAuth = {
   state: { 
@@ -21,6 +22,9 @@ const userAuth = {
           .then(user => {
               commit('setUser', user);
               commit('setIsAuthenticated', true);
+              console.log(user);
+              router.push('/films');
+              
           })
           .catch(() => {
               commit('setUser', null);

@@ -12,9 +12,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/sign-in',
-      name: 'sign-in',
-      component: () => import('./views/SignIn.vue')
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Auth.vue')
     },
     // {
     //   path: '/log-in',
