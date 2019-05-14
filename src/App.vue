@@ -1,22 +1,17 @@
 <template>
   <v-app class="par">
       <Header/>
-      <SignUp/>
-      <LogIn/>
       <router-view/>
   </v-app>
 </template>
 
 <script>
 import Header from './components/Header';
-import SignUp from './components/Sign-Up';
-import LogIn from './components/Log-In';
 
 export default {
   name: 'App',
   components: {
     Header,
-
   },
   data () {
     return {

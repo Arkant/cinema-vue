@@ -7,8 +7,8 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn class="white--text"  to="/" flat>Home</v-btn>
-        <v-btn v-if="isAuthenticated === true" class="white--text" to="/films" flat>Films True</v-btn>
-        <v-btn v-if="isAuthenticated === false" class="white--text" to="/films" flat>Films False</v-btn>
+        <!-- <v-btn v-if="isAuthenticated === true" class="white--text" to="/films" flat>Films True</v-btn>
+        <v-btn v-if="isAuthenticated === false" class="white--text" to="/films" flat>Films False</v-btn> -->
         <v-btn class="white--text" to="/about" flat>About</v-btn>
         <v-btn class="white--text" to="/sign-up" flat>Sign Up</v-btn>
         <v-btn class="white--text" to="/log-in" flat>Log In</v-btn>

@@ -16,7 +16,7 @@
                             </v-text-field>
                         </v-form>
                     <v-card-actions>
-                        <router-link class="my-green" to="/sign-up ">Not a member yet?</router-link>
+                        <a class="my-green" v-on:click="goToSignUp">Not a member yet?</a>
                         <v-spacer></v-spacer>
                         <v-btn class="white--text" color="#212121" :disabled="!valid" @click="submit">Login</v-btn>
                     </v-card-actions>
@@ -33,9 +33,6 @@ import { mapState } from 'vuex';
 
 export default {
     name: 'log-in',
-    mounted(){
-        console.log(1);
-    },
     data() {
         return {
             valid: false,
@@ -54,14 +51,17 @@ export default {
         };
     },
     methods: {
-        submit() {
-            if (this.$refs.form.validate()) {
-                this.$store.dispatch('userLogin', {
-                    email: this.email,
-                    password: this.password
-                });
-            }
-        }
+      submit() {
+          if (this.$refs.form.validate()) {
+              this.$store.dispatch('userLogin', {
+                  email: this.email,
+                  password: this.password
+              });
+          }
+      },
+      goToSignUp() {
+        this.$router.push('sign-up');
+      },
     },
     computed: mapState(['user'])
     

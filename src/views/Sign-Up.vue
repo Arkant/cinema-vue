@@ -19,7 +19,8 @@
                             </v-text-field>
                         </v-form>
                         <v-card-actions>
-                          <router-link class="my-green" to="/log-in ">Already Signed Up?</router-link>
+                          <a v-on:click="goToLogIn" class="my-green">Already Signed Up?</a>
+                          <!-- <v-btn class="white--text width" color="#212121" to="/log-in">Already Signed Up?</v-btn> -->
                           <v-spacer></v-spacer>
                           <v-btn class="white--text" color="#212121" :disabled="!valid" @click="submitForm">Sign Up</v-btn>
                         </v-card-actions>
@@ -59,6 +60,9 @@
             password: this.password
           });
         }
+      },
+      goToLogIn() {
+        this.$router.push('log-in');
       },
       passwordMatchError () { 
         return (this.password === this.passwordMatch) ? '' : 'Passwords must match'
