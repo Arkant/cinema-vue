@@ -47,6 +47,16 @@ const userAuth = {
               console.log(error);
           });
     },
+    userSignOut({commit}){
+      firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        commit('setUser', null);
+        commit('setIsAuthenticated', false);
+        router.push('/');
+      })
+    }
   },
   getters: {  
     isAuthenticated: state => state.isAuthenticated

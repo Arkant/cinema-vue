@@ -11,7 +11,7 @@
         <v-btn class="white--text" to="/about" flat>About</v-btn>
         <v-btn v-if="!isAuthenticated" class="white--text" to="/sign-up" flat>Sign Up</v-btn>
         <v-btn v-if="!isAuthenticated" class="white--text" to="/log-in" flat>Log In</v-btn>
-        <v-btn v-else class="white--text" to="/log-out" flat>Log Out</v-btn>
+        <v-btn v-else class="white--text" @click="logOut" flat>Log Out</v-btn>
       </v-toolbar-items>
   </v-toolbar>
 </template>
@@ -30,6 +30,11 @@ import { mapGetters } from 'vuex';
       return {
       };
     },
+    methods: {
+      logOut() {
+        this.$store.dispatch('userSignOut');
+      }
+    }
   }
 </script>
 
