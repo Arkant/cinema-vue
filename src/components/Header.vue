@@ -6,27 +6,27 @@
     </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
-        <v-btn class="white--text" to="/" flat>Home</v-btn>
-        <v-btn class="white--text" to="/films" flat>Films</v-btn>
+        <v-btn class="white--text"  to="/" flat>Home</v-btn>
+        <v-btn v-if="isAuthenticated === true" class="white--text" to="/films" flat>Films True</v-btn>
+        <v-btn v-if="isAuthenticated === false" class="white--text" to="/films" flat>Films False</v-btn>
         <v-btn class="white--text" to="/about" flat>About</v-btn>
-        <v-btn class="white--text" to="/login" flat>Sign Up | Log In</v-btn>
+        <v-btn class="white--text" to="/sign-up" flat>Sign Up</v-btn>
+        <v-btn class="white--text" to="/log-in" flat>Log In</v-btn>
       </v-toolbar-items>
+    {{isAuthenticated}}
   </v-toolbar>
 </template>
 
 <script>
-import mapState from 'vuex';
+import { mapState } from 'vuex';
 
   export default {
     name: 'Header',
-    computed: {
-      // ...mapState([''])
-    },
-    data () {
+    computed: mapState(['isAuthenticated']),
+    data() {
       return {
-        //
-      }
-    }
+      };
+    },
   }
 </script>
 

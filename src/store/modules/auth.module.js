@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import router from '@/router';
+import Vue from 'vue';
 
 const userAuth = {
   state: { 
@@ -12,10 +13,11 @@ const userAuth = {
     },
     setIsAuthenticated(state, payload) {
         state.isAuthenticated = payload;
-    }
+        Vue.set(state.isAuthenticated, )
+    },
    },
   actions: {  
-    userJoin({ commit }, { email, password }) {
+    userRegistration({ commit }, { email, password }) {
       firebase
           .auth()
           .createUserWithEmailAndPassword(email, password)
@@ -30,9 +32,24 @@ const userAuth = {
               commit('setUser', null);
               commit('setIsAuthenticated', false);
           });
-    }
+    },
+    userLogin({ commit }, { email, password }) {
+      firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then(user => {
+              commit('setUser', user);
+              commit('setIsAuthenticated', true);
+          })
+          .catch(() => {
+              commit('setUser', null);
+              commit('setIsAuthenticated', false);
+          });
+    },
   },
-  getters: {  }
+  getters: {  
+    isAuthenticated: state => state.isAuthenticated
+  }
 }
 
 export default userAuth;

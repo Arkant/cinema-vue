@@ -18,11 +18,12 @@
                                           type="password" required v-model="passwordMatch" :error-messages='passwordMatchError()'>
                             </v-text-field>
                         </v-form>
+                        <v-card-actions>
+                          <router-link class="my-green" to="/log-in ">Already Signed Up?</router-link>
+                          <v-spacer></v-spacer>
+                          <v-btn class="white--text" color="#212121" :disabled="!valid" @click="submitForm">Sign Up</v-btn>
+                        </v-card-actions>
                     </v-card-text>
-                    <v-card-actions>
-                        <v-spacer></v-spacer>
-                        <v-btn class="white--text" color="#212121" :disabled="!valid" @click="submitForm">Sign In</v-btn>
-                    </v-card-actions>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -53,7 +54,7 @@
     methods: {
       submitForm() {
         if (this.$refs.form.validate()) {
-          this.$store.dispatch('userJoin', {
+          this.$store.dispatch('userRegistration', {
             email: this.email,
             password: this.password
           });
@@ -67,5 +68,11 @@
 </script>
 
 <style scoped>
-
+  .my-green {
+    color:black;
+    text-decoration: none;
+  }
+  .my-green:hover {
+    color: #43A047;
+  }
 </style>

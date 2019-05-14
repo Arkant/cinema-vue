@@ -12,15 +12,15 @@ export default new Router({
       component: Home
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/Auth.vue')
+      path: '/sign-up',
+      name: 'sign-up',
+      component: () => import('./views/Sign-Up.vue')
     },
-    // {
-    //   path: '/log-in',
-    //   name: 'log-in',
-    //   component: Home
-    // },
+    {
+      path: '/log-in',
+      name: 'log-in',
+      component: () => import('./views/Log-In.vue')
+    },
     {
       path: '/films',
       name: 'films',
