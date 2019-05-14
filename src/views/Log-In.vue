@@ -18,7 +18,7 @@
                     <v-card-actions>
                         <a class="my-green" v-on:click="goToSignUp">Not a member yet?</a>
                         <v-spacer></v-spacer>
-                        <v-btn class="white--text" color="#212121" :disabled="!valid" @click="submit">Login</v-btn>
+                        <v-btn class="white--text" color="#212121" :disabled="!valid" @click="submitLogin">Login</v-btn>
                     </v-card-actions>
                     </v-card-text>
                 </v-card>
@@ -51,7 +51,7 @@ export default {
         };
     },
     methods: {
-      submit() {
+      submitLogin() {
           if (this.$refs.form.validate()) {
               this.$store.dispatch('userLogin', {
                   email: this.email,

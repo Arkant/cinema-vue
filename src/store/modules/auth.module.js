@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import router from '@/router';
-import Vue from 'vue';
+// import Vue from 'vue';
 
 const userAuth = {
   state: { 
@@ -13,7 +13,6 @@ const userAuth = {
     },
     setIsAuthenticated(state, payload) {
         state.isAuthenticated = payload;
-        Vue.set(state.isAuthenticated, )
     },
    },
   actions: {  
@@ -22,15 +21,15 @@ const userAuth = {
           .auth()
           .createUserWithEmailAndPassword(email, password)
           .then(user => {
+            console.log(user);
               commit('setUser', user);
               commit('setIsAuthenticated', true);
-              console.log(user);
               router.push('/films');
-              
           })
-          .catch(() => {
+          .catch((error) => {
               commit('setUser', null);
               commit('setIsAuthenticated', false);
+              console.log(error);
           });
     },
     userLogin({ commit }, { email, password }) {
@@ -40,10 +39,12 @@ const userAuth = {
           .then(user => {
               commit('setUser', user);
               commit('setIsAuthenticated', true);
+              router.push('/films');
           })
-          .catch(() => {
+          .catch((error) => {
               commit('setUser', null);
               commit('setIsAuthenticated', false);
+              console.log(error);
           });
     },
   },

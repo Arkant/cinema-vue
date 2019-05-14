@@ -28,10 +28,12 @@
                 </v-card>
             </v-flex>
         </v-layout>
+
     </v-container>
 </template>
 
 <script>
+// import { mapGetters } from 'vuex';
   export default {
     data() {
       return {
@@ -67,7 +69,8 @@
       passwordMatchError () { 
         return (this.password === this.passwordMatch) ? '' : 'Passwords must match'
       }
-    }
+    },
+
   }
 </script>
 
