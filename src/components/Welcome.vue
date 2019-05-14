@@ -7,7 +7,7 @@
           <h3>Discover it</h3> 
         </v-btn>
         <v-btn v-else to="/log-in" class="btn-hello white--text" color="#212121"> 
-          <h3>{{isAuthenticated}}</h3> 
+          <h3>Discover it</h3> 
         </v-btn>
       </div>
     </v-card-text>
