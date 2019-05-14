@@ -3,8 +3,11 @@
     <v-card-text>
       <div class="text-xs-center display-3">
         <p>VUETIFUL MOVIES</p>
-        <v-btn class="btn-hello white--text" color="#212121"> 
+        <v-btn v-if="isAuthenticated" to="/films" class="btn-hello white--text" color="#212121"> 
           <h3>Discover it</h3> 
+        </v-btn>
+        <v-btn v-else to="/log-in" class="btn-hello white--text" color="#212121"> 
+          <h3>{{isAuthenticated}}</h3> 
         </v-btn>
       </div>
     </v-card-text>
@@ -17,9 +20,9 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'homeMessage'
+      'isAuthenticated'
     ])
-  }
+  },
 }
 </script>
 
