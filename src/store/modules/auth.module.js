@@ -5,7 +5,8 @@ import router from '@/router';
 const userAuth = {
   state: { 
     user: null,
-    isAuthenticated: false
+    isAuthenticated: false,
+    hasError: null
    },
   mutations: { 
     setUser(state, payload) {
@@ -14,6 +15,9 @@ const userAuth = {
     setIsAuthenticated(state, payload) {
         state.isAuthenticated = payload;
     },
+    setHasError(state, payload) {
+      state.hasError = payload;
+    }
    },
   actions: {  
     userRegistration({ commit }, { email, password }) {
@@ -21,7 +25,7 @@ const userAuth = {
           .auth()
           .createUserWithEmailAndPassword(email, password)
           .then(user => {
-            console.log(user);
+              commit('setHasError', null);
               commit('setUser', user);
               commit('setIsAuthenticated', true);
               router.push('/films');
@@ -29,7 +33,7 @@ const userAuth = {
           .catch((error) => {
               commit('setUser', null);
               commit('setIsAuthenticated', false);
-              console.log(error);
+              commit('setHasError', error);
           });
     },
     userLogin({ commit }, { email, password }) {
@@ -37,6 +41,7 @@ const userAuth = {
           .auth()
           .signInWithEmailAndPassword(email, password)
           .then(user => {
+              commit('setHasError', null);
               commit('setUser', user);
               commit('setIsAuthenticated', true);
               router.push('/films');
@@ -44,7 +49,7 @@ const userAuth = {
           .catch((error) => {
               commit('setUser', null);
               commit('setIsAuthenticated', false);
-              console.log(error);
+              commit('setHasError', error);
           });
     },
     userSignOut({commit}){
@@ -59,7 +64,8 @@ const userAuth = {
     }
   },
   getters: {  
-    isAuthenticated: state => state.isAuthenticated
+    isAuthenticated: state => state.isAuthenticated,
+    hasError: state => state.hasError
   }
 }
 
