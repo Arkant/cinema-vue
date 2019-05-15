@@ -14,6 +14,8 @@
                             <v-text-field  color="#4CAF50" prepend-icon="lock" name="password" label="Password" id="password"
                                           type="password" required v-model="password" :rules="passwordRules">
                             </v-text-field>
+                            
+                            <p v-if="hasError" class="red--text">{{hasError}}</p>
                         </v-form>
                     <v-card-actions>
                         <a class="my-green" v-on:click="goToSignUp">Not a member yet?</a>
@@ -29,7 +31,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
     name: 'log-in',
@@ -52,18 +54,22 @@ export default {
     },
     methods: {
       submitLogin() {
-          if (this.$refs.form.validate()) {
-              this.$store.dispatch('userLogin', {
-                  email: this.email,
-                  password: this.password
-              });
-          }
+        if (this.$refs.form.validate()) {
+          this.$store.dispatch('userLogin', {
+              email: this.email,
+              password: this.password
+          });
+        }
       },
       goToSignUp() {
         this.$router.push('sign-up');
       },
     },
-    computed: mapState(['user'])
+    computed: {
+      ...mapGetters([
+        'hasError'
+      ])
+    }
     
 };
 </script>
