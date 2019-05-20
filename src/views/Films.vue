@@ -1,10 +1,19 @@
 <template>
 <v-container>
   it's Films
-  {{getAllFilms}}
-  <!-- <div v-for="(user, idx) in users" :key="idx">
-    <h1>{{ user.name }}</h1>
- </div> -->
+  <div v-for="(film, idx) in getAllFilms" :key="idx">
+    <h1>{{ film.name }}</h1>
+    <h1>{{ film.description }}</h1>
+    
+    <ul v-for="(genre, index) in film.genres" :key="index">
+        <li v-text="genre"></li>
+    </ul>
+    <h1>{{ film.rate }}</h1>
+    <h1>{{ film.length }}</h1>
+ </div>
+    <div>
+        <v-img :src="`${setImageUrl}`"></v-img>
+    </div>
 </v-container>
 </template>
 
@@ -25,17 +34,22 @@ export default {
     if (!this.$store.getters.isAuthenticated) {
       router.push('/');
     } else {
-      this.getRecipes();
+      this.getFilms();
+      this.getImages()
     }
   },
   methods: {
-    getRecipes() {
+    getFilms() {
       this.$store.dispatch('getAllFilms');
+    },
+    getImages() {
+      this.$store.dispatch('getImage','background.bmp');
     }
   },
   computed: {
     ...mapGetters([
-      'getAllFilms'
+      'getAllFilms',
+      'setImageUrl'
     ])
   }
 }

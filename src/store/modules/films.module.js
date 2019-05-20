@@ -8,9 +8,10 @@ const filmsModule = {
   },
   mutations: { 
     setAllFilms(state, payload) {
+      state.films = [];
       payload.forEach(doc => {
         state.films.push(doc.data());
-      })
+      });
     }
   },
   actions: { 
